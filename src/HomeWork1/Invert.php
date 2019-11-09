@@ -6,17 +6,13 @@
 
 class Invert
 {
-    public $var;
-
+    public static $solution;
     public function solution($var = NULL)
     {
         if(isset($var)){
-            echo $solution = strrev($var);
+            echo self::$solution = strrev($var);
         } else {
             echo "Значение для переменной - не задано.";
         }
     }
 }
-$reverse = new Invert;
-$reverse->solution('world'); // returns "dlrow"
-
