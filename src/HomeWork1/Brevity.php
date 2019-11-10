@@ -8,17 +8,10 @@
 
 class Brevity
 {
-    public function cut()
+    public $result;
+    public function cut($name)
     {
-        header('Content-Type: text/html; charset=UTF-8');
-        $name = 'Kulikov Dmitrii';
-        $a = preg_split("^/[A-Z][a-z][A-Za-z]*$/",$name);
-//        $result = mb_strcut($name,'1','10','UTF-8');
-//        echo $result;
-        var_dump($a);
+        $arr = explode(" ", $name);
+        $this->result = ($arr[0]. " ".mb_substr($arr[1],'0','1').'.' .mb_substr($arr[2],'0','1'));
     }
-
 }
-
-$result = new Brevity();
-$result->cut();
