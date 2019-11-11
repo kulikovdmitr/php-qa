@@ -16,4 +16,25 @@ class BrevityTest extends TestCase
         $brevity->cut('Куликов Дмитрий Валериевич');
         self::assertEquals('Куликов Д.В',$brevity->result);
     }
+
+    public function testTwo()
+    {
+        $brevity = new Brevity();
+        $brevity->cut('Kulikov Dmitrii Valerievich');
+        self::assertEquals('Kulikov D.V',$brevity->result);
+    }
+
+    public function testThree()
+    {
+        $brevity = new Brevity();
+        $brevity->cut('Kulikov D V');
+        self::assertEquals('Kulikov D.V',$brevity->result);
+    }
+
+    public function testFour()
+    {
+        $brevity = new Brevity();
+        $brevity->cut('Kulikov');
+        self::assertEquals('Введенное значение - некорректно, заполните ФИО полностью.',$brevity->error);
+    }
 }
