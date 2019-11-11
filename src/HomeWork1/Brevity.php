@@ -20,7 +20,3 @@ class Brevity
         }
     }
 }
-
-//$result = new Brevity();
-//$result->cut('kulikov dmitrii valerievich');
-//echo $result->result;
