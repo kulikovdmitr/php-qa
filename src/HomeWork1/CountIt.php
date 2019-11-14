@@ -8,10 +8,8 @@
 
 class CountIt
 {
-    public static $result;
-    public function Count($number,$value)
+    public function Count(int $number, int $value)
     {
-        self::$result =  substr_count($value,$number);
-        echo self::$result;
+        return substr_count($value,$number);
     }
 }

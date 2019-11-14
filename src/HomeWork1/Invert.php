@@ -6,13 +6,8 @@
 
 class Invert
 {
-    public static $solution;
-    public function solution($var = NULL)
+    public function solution(string $var)
     {
-        if(isset($var)){
-            echo self::$solution = strrev($var);
-        } else {
-            echo "Значение для переменной - не задано.";
-        }
+        return strrev($var);
     }
 }

@@ -14,14 +14,18 @@ class CountitTest extends TestCase
     {
         require '../src/HomeWork1/CountIt.php';
         $counter = new Countit;
-        $counter->Count(5,442158755745);
-        self::assertEquals('4',CountIt::$result);
+        self::assertEquals(4,$counter->Count(5,442158755745));
     }
 
     public function testTwo()
     {
         $counter = new Countit;
-        $counter->Count('1','000001');
-        self::assertEquals('1',CountIt::$result);
+        self::assertEquals(1,$counter->Count(1,000001));
+    }
+
+    public function testThree()
+    {
+        $counter = new Countit;
+        self::assertEquals(1,$counter->Count(0,0));
     }
 }
