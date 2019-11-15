@@ -2,7 +2,7 @@
 
 class Parser
 {
-    public $string = 'Произвольная строка, которая иногда содержит +7(985)808-86-90 телефоны, а иногда <a href=\'https://example.com\'>ссылки</a>';
+    public $string;
     public function getLinks()
     {
         $reg_url='/[www]{3}.{1}[.].[a-z]{1,}|[https]{4,}.{3}[a-z]{1,}.[a-z]{1,}/';

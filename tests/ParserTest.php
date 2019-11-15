@@ -14,7 +14,8 @@ class ParserTest extends  TestCase
     {
         require '../src/HomeWork1/Parser.php';
         $parser = new Parser();
-        $this->string;
-        self::assertEquals(89032899928,$parser->getLinks());
+        $parser->string = '89032899928';
+        $parser->getLinks();
+        self::assertEquals(89032899928,$parser->result);
     }
 }

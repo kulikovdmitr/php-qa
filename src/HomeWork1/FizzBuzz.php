@@ -1,15 +1,8 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: dvkulikov
- * Date: 10/11/2019
- * Time: 22:28
- */
 
 Class FizzBuzz
 {
-    public $result;
-    public function get (int $i)
+    public function get(int $i)
     {
         $mod3 = $i % 3;
         $mod5 = $i % 5;
