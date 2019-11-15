@@ -8,20 +8,14 @@
 
 class GetSecondMax
 {
-
-    public function GetSecond()
-
+    public function GetSecond_First(array $arr)
     {
-        $arr = [3, 4, 2, 4, 5, 5];
-
-        $uniarr = array_unique($arr);
-        //arsort($uni_arr);
-        //$max_value = array_pop($uni_arr);
-        //$result = array_pop($uni_arr);
-        //var_dump($uniarr);
-        print_r($uniarr);
+        $a = array_unique($arr);
+        sort($a);
+        array_pop($a);
+        return  max($a);
     }
 }
 
 $result = new GetSecondMax();
-$result->GetSecond();
+$result->GetSecond_First([9,2,2,3,4,5]);
