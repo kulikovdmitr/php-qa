@@ -14,49 +14,24 @@ class FizzBuzzTest extends TestCase
     {
         require '../src/HomeWork1/FizzBuzz.php';
         $fizzbuzz = new FizzBuzz();
-        $fizzbuzz->get(1);
-        self::assertEquals(1,$fizzbuzz->result);
+        self::assertEquals('fizz', $fizzbuzz->get(3));
     }
 
     public function testTwo()
     {
         $fizzbuzz = new FizzBuzz();
-        $fizzbuzz->get(2);
-        self::assertEquals(2,$fizzbuzz->result);
+        self::assertEquals('buzz', $fizzbuzz->get(5));
     }
 
     public function testThree()
     {
         $fizzbuzz = new FizzBuzz();
-        $fizzbuzz->get(3);
-        self::assertEquals('fizz',$fizzbuzz->result);
+        self::assertEquals('fizzbuzz', $fizzbuzz->get(15));
     }
-
     public function testFour()
     {
         $fizzbuzz = new FizzBuzz();
-        $fizzbuzz->get(5);
-        self::assertEquals('buzz',$fizzbuzz->result);
+        self::assertEquals(2, $fizzbuzz->get(2));
     }
 
-    public function testFive()
-    {
-        $fizzbuzz = new FizzBuzz();
-        $fizzbuzz->get(9);
-        self::assertEquals('fizz',$fizzbuzz->result);
-    }
-
-    public function testSix()
-    {
-        $fizzbuzz = new FizzBuzz();
-        $fizzbuzz->get(15);
-        self::assertEquals('fizzbuzz',$fizzbuzz->result);
-    }
-
-    public function testSeven()
-    {
-        $fizzbuzz = new FizzBuzz();
-        $fizzbuzz->get(0);
-        self::assertEquals('0',$fizzbuzz->result);
-    }
 }

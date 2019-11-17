@@ -2,23 +2,31 @@
 
 Class FizzBuzz
 {
+    private function isInvalid($i)
+    {
+        if($i < 0 ){
+            throw new Exception('Введенное значение $i меньше 0',2);
+        }
+
+        if ($i == 0){
+            throw new Exception('Введенное значение $i равно 0', 3);
+        }
+    }
+
     public function get(int $i)
     {
-        $mod3 = $i % 3;
-        $mod5 = $i % 5;
-        $mod35 = $i % 15;
+        $this->isInvalid($i);
 
-        if  ($i > 0 and $mod3 == 0 and $mod5 !== 0){
+        $result = false;
 
-            $this->result = "fizz";
+            if($i % 3 === 0){
+                $result .= 'fizz';
+            }
 
-        } elseif($i > 0 and $mod5 == 0 and $mod3 !== 0) {
+            if($i % 5 === 0){
+                $result .= 'buzz';
+            }
 
-            $this->result = "buzz";
-        } elseif ($i > 0 and $mod35 == 0){
-            $this->result = "fizzbuzz";
-        } else {
-            $this->result = $i;
-        }
+        return ($result) ? $result : $i;
     }
 }

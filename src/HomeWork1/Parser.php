@@ -4,7 +4,7 @@ class Parser
 {
     public function getLinks($string)
     {
-        $reg_url='/[ht|ftps?]{3,}.{3}[a-z]{1,}.[a-z]{1,}.{1}[a-z]{1,}|[www]{3}.[a-z]{1,}.[a-z]{1,}/';
+        $reg_url='/[ht|ftps?]{3,}[^\s]+|[www]{3}[^\s]+/';
 
         preg_match($reg_url, $string,$matches_url);
 

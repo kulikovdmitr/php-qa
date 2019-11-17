@@ -1,5 +1,7 @@
 <?php
 
+//Задачу - не сделал. !<=====
+
 class TicTacToe
 {
     public function check()
@@ -25,4 +27,3 @@ class TicTacToe
 $result = new TicTacToe();
 $result->check(); // returns false
 //$judge->check($tttFull); // returns false
-
