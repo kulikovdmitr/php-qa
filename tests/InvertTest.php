@@ -4,7 +4,6 @@ use PHPUnit\Framework\TestCase;
 
 class InvertTest extends TestCase
 {
-
     public function testOne()
     {
         require  '../src/Homework1/Invert.php';

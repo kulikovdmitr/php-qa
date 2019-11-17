@@ -12,29 +12,19 @@ class BrevityTest extends TestCase
     public function testOne()
     {
         require '../src/Homework1/Brevity.php';
-        $brevity = new Brevity();
-        $brevity->cut('Куликов Дмитрий Валериевич');
-        self::assertEquals('Куликов Д.В',$brevity->result);
+        $result = new Brevity();
+        self::assertEquals('Куликов Д.В.',$result->cut('Куликов Дмитрий Валериевич'));
     }
 
     public function testTwo()
     {
-        $brevity = new Brevity();
-        $brevity->cut('Kulikov Dmitrii Valerievich');
-        self::assertEquals('Kulikov D.V',$brevity->result);
+        $result = new Brevity();
+        self::assertEquals('Kulikov D.V.',$result->cut('Kulikov Dmitrii Valerievich'));
     }
 
     public function testThree()
     {
-        $brevity = new Brevity();
-        $brevity->cut('Kulikov D V');
-        self::assertEquals('Kulikov D.V',$brevity->result);
-    }
-
-    public function testFour()
-    {
-        $brevity = new Brevity();
-        $brevity->cut('Kulikov');
-        self::assertEquals('Введенное значение - некорректно, заполните ФИО полностью.',$brevity->error);
+        $result = new Brevity();
+        self::assertEquals('Kulikov D.',$result->cut('Kulikov Dmitrii'));
     }
 }
