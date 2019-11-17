@@ -2,22 +2,21 @@
 
 class Parser
 {
-    public $string;
-    public function getLinks()
+    public function getLinks($string)
     {
-        $reg_url='/[www]{3}.{1}[.].[a-z]{1,}|[https]{4,}.{3}[a-z]{1,}.[a-z]{1,}/';
+        $reg_url='/[ht|ftps?]{3,}.{3}[a-z]{1,}.[a-z]{1,}.{1}[a-z]{1,}|[www]{3}.[a-z]{1,}.[a-z]{1,}/';
 
-        preg_match($reg_url, $this->string,$matches_url, PREG_OFFSET_CAPTURE,0);
+        preg_match($reg_url, $string,$matches_url);
 
-        echo "['". $matches_url[0][0] . "']"."\n";
+        return "['". $matches_url[0] . "']";
     }
 
-    public function getPhones()
+    public function getPhones($string2)
     {
         $reg_phone = '/(?<phone>\W[0-9]{11,}|[0-9]{11,}|\W[7]{1}\W[0-9]{3}\W[0-9]{3}\W[0-9]{2}\W[0-9]{2}|[8]{1}\W[0-9]{3}\W[0-9]{3}\W[0-9]{2}\W[0-9]{2})/';
 
-        preg_match($reg_phone, $this->string, $match_phone, PREG_OFFSET_CAPTURE, 0);
+        preg_match($reg_phone, $string2, $match_phone);
 
-        echo "['". $match_phone['phone'][0] . "']";
+        return "['".$match_phone['phone'] . "']";
     }
 }
