@@ -1,21 +1,16 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: dvkulikov
- * Date: 18/11/2019
- * Time: 21:03
- */
+
 class FindLongest
 {
     public function findLongester(string $string)
     {
-        $arr = array_filter(explode(' ',$string));
-
-        foreach ($arr as $key => $value){
-
+        $arr = explode(' ',$string);
+        foreach ($arr as $value=>$value) {
         }
+
     }
 }
 
 $result = new FindLongest();
-$result->findLongester('wefhui rgioj 34oijfgh3oi4gj3oi4gj');
+$result->findLongester('def abc ghkeee');
+
