@@ -6,7 +6,7 @@ class GraussTest extends TestCase
 {
     public function testOne()
     {
-        require  '../src/Homework1/Grauss.php';
+        require '../src/Homework1/Grauss.php';
         $grauss = new Grauss();
         self::assertEquals(5050,$grauss->get(100), 'Ожидаемый результат не равен действительному');
         unset($grauss->stop);

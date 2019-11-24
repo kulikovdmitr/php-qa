@@ -6,7 +6,7 @@ class InvertTest extends TestCase
 {
     public function testOne()
     {
-        require  '../src/Homework1/Invert.php';
+        require '../src/Homework1/Invert.php';
         $invert = new Invert();
         self::assertEquals('dlrow',$invert->solution('world'), 'Ожидаемый результат не равен действительному');
     }
