@@ -6,18 +6,17 @@ class DealWithIt
     {
         $start = microtime(true);
         $reg_email='/[a-zA-z0-9]{1,64}@[a-zA-z0-9.]{1,255}/';
-        preg_match_all($reg_email,$string,$matches);
+        preg_match_all($reg_email,$string,$arr);
 
-        foreach ($matches as $value){
-            foreach ($value as $values){
-                $n = strlen($values);
-                $string = preg_replace($reg_email, str_repeat("*", $n), $string);
-                return $string;
-
-            };
+        foreach ($arr as $value){
+            foreach ($value as $val){
+                $val_arr = [$val, strlen($val)];
+                $string = str_replace($val_arr[0],str_repeat("*",intval($val_arr[1])),$string);
+            }
         }
         $end = microtime(true);
-        echo "Время выполнения скрипта: ".($end - $start); //вывод результат
+        echo "Время выполнения скрипта: ".($end - $start);
+        return $string;
     }
 
     public function findMatchesWithoutRegexp($string)
@@ -30,11 +29,10 @@ class DealWithIt
             if (strstr($value, '@') == true) {
                 $value = [$value, strlen($value)];
                 $string = str_replace($value[0],str_repeat("*",intval($value[1])),$string);
-                return $string;
             }
         }
-
         $end = microtime(true);
         echo "Время выполнения скрипта: ".($end - $start); //вывод результат
+        return $string;
     }
 }

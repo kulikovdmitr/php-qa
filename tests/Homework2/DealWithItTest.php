@@ -1,28 +1,43 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: dvkulikov
- * Date: 10/11/2019
- * Time: 21:53
- */
 
 use PHPUnit\Framework\TestCase;
 
-class CountitTest extends TestCase
+class DealWithItTest extends TestCase
 {
     public function testOneWithRegexp()
     {
-        require "../src"
-
+        require "../../src/HomeWork2/DealWithIt.php";
+        $result = new DealWithIt();
+        self::assertEquals('name1 name2 ******** ******************',$result->findMatchesWithRegexp('name1 name2 yo@ya.ru dvkulikov@avito.ru'));
     }
 
     public function testOneWithoutRegexp()
     {
-
+        $result = new DealWithIt();
+        self::assertEquals('name1 name2 ******** ******************',$result->findMatchesWithoutRegexp('name1 name2 yo@ya.ru dvkulikov@avito.ru'));
     }
 
+    public function testTwoWithoutRegexp()
+    {
+        $result = new DealWithIt();
+        self::assertEquals('***********',$result->findMatchesWithoutRegexp('dk@avito.ru'));
+    }
 
-$result = new DealWithIt();
-$result->findMatchesWithRegexp('weofijeio abcd@abcd.ru def@def.ru eowifj');
-$result->findMatchesWithoutRegexp('weofijeio abcd@abcd.ru def@def.ru eowifj');
+    public function testThreeWithoutRegexp()
+    {
+        $result = new DealWithIt();
+        self::assertEquals('abcd',$result->findMatchesWithoutRegexp('abcd'));
+    }
+
+    public function testFourWithoutRegexp()
+    {
+        $result = new DealWithIt();
+        self::assertEquals('',$result->findMatchesWithoutRegexp(''));
+    }
+
+    public function testFiveWithoutRegexp()
+    {
+        $result = new DealWithIt();
+        self::assertEquals('@',$result->findMatchesWithoutRegexp('@'));
+    }
 }

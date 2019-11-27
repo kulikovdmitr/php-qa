@@ -1,18 +1,34 @@
 <?php
 
-class FindLongest
-{
-    public function findLongester($string)
+//class FindLongest
+//{
+//    function findLongester($string)
+//    {
+//        $arr = explode(' ', $string);
+//        usort($arr,'mySort');
+//    }
+//
+//    function mySort($a, $b)
+//    {
+//        $a['0'] <=> $b['0'];
+//    }
+//}
+//
+//$result = new FindLongest();
+//$result->findLongester('wefeirogh erwiogjweiorg ewrijgweoirgjrif');
+
+
+    function findLongester($string)
     {
-        $arr = explode(' ',$string);
-        //var_dump($arr);
-        usort($arr,'mysort');
+        echo "fwefwef";
     }
 
-    function mysort($a,$b){
-        return $a['0'] <=> $b['0'];
-    }
-}
+    $arr = explode(' ', '123 123 123 12345');
 
-$result = new FindLongest();
-$result->findLongester('wefeirogh erwiogjweiorg ewrijgweoirgjrif');
+    function mySort($a, $b)
+    {
+        $a <=> $b;
+    }
+
+usort($arr,"mysort");
+    var_dump($arr);
