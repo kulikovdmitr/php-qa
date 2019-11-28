@@ -2,7 +2,7 @@
 
 class DealWithIt
 {
-    public function findMatchesWithRegexp(string $string)
+    public function findMatchesWithRegexp(string $string):string
     {
         $start = microtime(true);
         $reg_email='/[a-zA-z0-9]{1,64}@[a-zA-z0-9.]{1,255}/';
@@ -19,7 +19,7 @@ class DealWithIt
         return $string;
     }
 
-    public function findMatchesWithoutRegexp($string)
+    public function findMatchesWithoutRegexp(string $string):string
     {
         $start = microtime(true);
 
@@ -29,13 +29,17 @@ class DealWithIt
             if (strstr($value, '@') == true) {
                 $firstToken = strtok($value,'@');
                 $secondToken = strtok('@');
-                    if($firstToken === true and $secondToken === true){
-                        return true;
+                    if($firstToken ==! null && $secondToken ==! null){
+                        $value = [$value, strlen($value)];
+                        $string = str_replace($value[0],str_repeat("*",intval($value[1])),$string);
+                    }else{
+                        unset($value);
                     }
-                $value = [$value, strlen($value)];
-                $string = str_replace($value[0],str_repeat("*",intval($value[1])),$string);
+            }else{
+                unset($value);
             }
         }
+
         $end = microtime(true);
         echo "Время выполнения скрипта: ".($end - $start);
         return $string;
