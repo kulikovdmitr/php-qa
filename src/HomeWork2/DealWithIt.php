@@ -27,12 +27,17 @@ class DealWithIt
 
         foreach ($arr as $value) {
             if (strstr($value, '@') == true) {
+                $firstToken = strtok($value,'@');
+                $secondToken = strtok('@');
+                    if($firstToken === true and $secondToken === true){
+                        return true;
+                    }
                 $value = [$value, strlen($value)];
                 $string = str_replace($value[0],str_repeat("*",intval($value[1])),$string);
             }
         }
         $end = microtime(true);
-        echo "Время выполнения скрипта: ".($end - $start); //вывод результат
+        echo "Время выполнения скрипта: ".($end - $start);
         return $string;
     }
 }
