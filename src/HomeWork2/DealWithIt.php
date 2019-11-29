@@ -19,25 +19,28 @@ class DealWithIt
         return $string;
     }
 
-    public function findMatchesWithoutRegexp(string $string):string
+    public function findMatchesWithoutRegexp(string $string)
     {
         $start = microtime(true);
 
         $arr = explode(" ", $string);
 
         foreach ($arr as $value) {
-            if (strstr($value, '@') == true) {
-                $firstToken = strtok($value,'@');
-                $secondToken = strtok('@');
-                    if($firstToken ==! null && $secondToken ==! null){
-                        $value = [$value, strlen($value)];
-                        $string = str_replace($value[0],str_repeat("*",intval($value[1])),$string);
-                    }else{
-                        unset($value);
-                    }
-            }else{
-                unset($value);
+            if (strstr($value, '@') != true) {
+                continue;
             }
+
+            $firstToken = strtok($value,'@');
+
+            $secondToken = strtok('@');
+
+            if($firstToken == null || $secondToken == null){
+                continue;
+            }
+
+            $value = [$value, strlen($value)];
+
+            $string = str_replace($value[0],str_repeat("*",intval($value[1])),$string);
         }
 
         $end = microtime(true);
