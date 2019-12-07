@@ -4,16 +4,16 @@ class FindLongest
 {
     public function findLongester($string)
     {
-        function mysort($a,$b) {
+        $mysort = function ($a,$b) {
             if (strlen($a) == strlen($b)) {
                 return 0;
             }
             return (strlen($a) > strlen($b)) ? -1 : 1;
-        }
+        };
 
         $arr = explode(' ',$string);
 
-        usort($arr,'mysort');
+        usort($arr,$mysort);
 
         $firstMaxValue = array_shift($arr); //извлекли первое значение(максимальное)
 

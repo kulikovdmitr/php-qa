@@ -14,4 +14,10 @@ class FindLongestTest extends TestCase
         $result = new FindLongest();
         self::assertEquals('123456',$result->findLongester('123456'));
     }
+
+    public function testThirdLongest()
+    {
+        $result = new FindLongest();
+        self::assertEquals('123456',$result->findLongester('123456 12345'));
+    }
 }
